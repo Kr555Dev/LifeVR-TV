@@ -20,13 +20,12 @@ public class PauseActiveVideo : MonoBehaviour
 
     void Update()
     {
-        // Example: You can update the active child during runtime if needed
-        activeChild = GetActiveChild();
+
     }
 
     public void PauseVideo()
     {
-        VideoPlayer pp = activeChild.GetComponent<VideoPlayer>();
+        VideoPlayer pp = helper();
         if (pp != null)
         {
             pp.Pause();
@@ -35,7 +34,7 @@ public class PauseActiveVideo : MonoBehaviour
 
     public void ResumeVideo()
     {
-        VideoPlayer pp = activeChild.GetComponent<VideoPlayer>();
+        VideoPlayer pp = helper();
         if (pp != null)
         {
             pp.Play();
@@ -45,7 +44,7 @@ public class PauseActiveVideo : MonoBehaviour
     public void StopVideo()
     {
         // Stop video playback and disable the video player
-        VideoPlayer pp = activeChild.GetComponent<VideoPlayer>();
+        VideoPlayer pp = helper();
         pp.Stop();
         pp.gameObject.SetActive(false);
     }
